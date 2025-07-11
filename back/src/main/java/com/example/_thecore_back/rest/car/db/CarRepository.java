@@ -12,6 +12,8 @@ public interface CarRepository extends JpaRepository<CarEntity, Integer> {
 
     Optional<CarEntity> findByCarNumber(String carNumber);
 
+    Optional<CarEntity> findByEmulatorId(Integer emulatorId);
+
     @Query("select c.status, count(c) from Car c group by c.status")
     List<Object[]> getCountByStatus();
 

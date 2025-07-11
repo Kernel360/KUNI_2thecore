@@ -58,7 +58,11 @@ public class CarService {
             CarRequestDto carRequest
     ) {
         if (carRepository.findByCarNumber(carRequest.getCarNumber()).isPresent()) {
-            throw new CarAlreadyExistsException(carRequest.getCarNumber());
+            throw new CarAlreadyExistsException("차량 번호가 이미 존재합니다: " + carRequest.getCarNumber());
+        }
+
+        if (carRepository.findByEmulatorId(carRequest.getEmulatorId()).isPresent()) {
+            throw new CarAlreadyExistsException("해당 Emulator ID가 이미 사용 중입니다: " + carRequest.getEmulatorId());
         }
         var entity = CarEntity.builder()
                 .brand(carRequest.getBrand())
