@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/2thecore_back.main.iml" filepath="$PROJECT_DIR$/.idea/modules/2thecore_back.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/KUNI_2thecore.iml" filepath="$PROJECT_DIR$/.idea/KUNI_2thecore.iml" />
+    </modules>
+  </component>
+</project>
