@@ -6,7 +6,6 @@ import com.example._thecore_back.car.controller.dto.*;
 import com.example._thecore_back.car.domain.CarStatus;
 import com.example._thecore_back.car.exception.CarAlreadyExistsException;
 import com.example._thecore_back.car.exception.CarErrorCode;
-import com.example._thecore_back.car.exception.CarNotFoundByFilterException;
 import com.example._thecore_back.car.exception.CarNotFoundException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
@@ -19,6 +18,8 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -386,11 +387,12 @@ public class CarControllerTest {
     @Test
     @DisplayName("해당 조건을 충족하는 차량이 없는경우")
     public void getCarsByFilterFailed() throws Exception {
-        when(carService.getCarsByFilter(null, "삼성", null, null)).thenThrow(new CarNotFoundByFilterException());
+        when(carService.getCarsByFilter(null, "삼성", null, null)).thenReturn(Collections.emptyList()
+        );
 
         mockMvc.perform(get("/api/cars/search").param("model", "삼성"))
                 .andDo(print())
-                .andExpect(jsonPath("$.data.status").value(400))
-                .andExpect(jsonPath("$.data.message").value("해당 조건으로 검색된 차가 존재하지 않습니다."));
+                .andExpect(jsonPath("$.result").value(true))
+                .andExpect(jsonPath("$.data.length()").value(0));
     }
 }

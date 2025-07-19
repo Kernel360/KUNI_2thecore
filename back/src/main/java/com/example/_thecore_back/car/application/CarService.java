@@ -9,7 +9,7 @@ import com.example._thecore_back.car.controller.dto.CarDetailDto;
 import com.example._thecore_back.car.controller.dto.CarSearchDto;
 import com.example._thecore_back.car.controller.dto.CarSummaryDto;
 import com.example._thecore_back.car.exception.CarErrorCode;
-import com.example._thecore_back.car.exception.CarNotFoundByFilterException;
+//import com.example._thecore_back.car.exception.CarNotFoundByFilterException;
 import com.example._thecore_back.car.exception.CarNotFoundException;
 import com.example._thecore_back.car.infrastructure.mapper.CarMapper;
 import org.springframework.stereotype.Service;
@@ -45,10 +45,7 @@ public class CarService {
 
     public CarSummaryDto getCountByStatus(){
 
-        Map<CarStatus, Long> result = carReader.getCountByStatus().stream().collect(Collectors.toMap(
-                row -> (CarStatus) row[0],
-                row -> (Long) row[1]
-        ));
+        Map<CarStatus, Long> result = carReader.getCountByStatus();
 
         return CarSummaryDto.builder()
                 .operating(result.getOrDefault(CarStatus.IN_USE, 0L))
@@ -64,10 +61,6 @@ public class CarService {
                                               String brand,    CarStatus status) {
 
         var result = carMapper.search(carNumber, model, brand, status);
-
-        if (result.isEmpty()) {
-            throw new CarNotFoundByFilterException();
-        }
 
         return result.stream()
                 .map(CarSearchDto::EntityToDto)

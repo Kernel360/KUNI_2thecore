@@ -52,20 +52,4 @@ public class CarExceptionHandler {
                 .status(HttpStatus.NOT_FOUND.value())
                 .body(ApiResponse.fail(response));
     }
-
-    // 필터링 결과가 존재하지 않을때
-
-    @ExceptionHandler(CarNotFoundByFilterException.class)
-    public ApiResponse<CarExceptionResponse> handleCarNotFoundByFilterException(CarNotFoundByFilterException e, HttpServletRequest request) {
-
-        var response = CarExceptionResponse.builder()
-                .timestamp(LocalDateTime.now())
-                .status(HttpStatus.BAD_REQUEST.value())
-                .error(HttpStatus.BAD_REQUEST.getReasonPhrase())
-                .message(e.getMessage())
-                .path(request.getRequestURI())
-                .build();
-
-        return ApiResponse.fail(response);
-    }
 }

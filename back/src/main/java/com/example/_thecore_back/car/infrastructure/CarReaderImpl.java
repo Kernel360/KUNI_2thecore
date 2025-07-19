@@ -2,10 +2,13 @@ package com.example._thecore_back.car.infrastructure;
 
 import com.example._thecore_back.car.domain.CarEntity;
 import com.example._thecore_back.car.domain.CarReader;
+import com.example._thecore_back.car.domain.CarStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Repository
 public class CarReaderImpl implements CarReader {
@@ -24,8 +27,15 @@ public class CarReaderImpl implements CarReader {
         return carRepository.findAll();
     }
 
-    public List<Object[]> getCountByStatus(){
-        return carRepository.getCountByStatus();
+    public Map<CarStatus, Long> getCountByStatus(){
+
+        List<Object[]> result = carRepository.getCountByStatus();
+
+        return result.stream().collect(Collectors.toMap(
+                row -> (CarStatus) row[0],
+                row -> (Long) row[1]
+        ));
+
     }
 
     public Optional<CarEntity> findByEmulatorId(Integer emulatorId){
