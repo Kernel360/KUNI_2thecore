@@ -10,20 +10,26 @@ import lombok.*;
 @Builder
 @ToString
 @Entity
+@Table(name = "emulator")
 public class EmulatorEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String carNumber;   // 차량 번호
+    @Column(name = "device_id", nullable = false, length = 20)
+    private String deviceId; // 디바이스 ID
 
     @Enumerated(EnumType.STRING)
-    private EmulatorStatus status;      // 애뮬레이터 상태
+    @Column(name = "status", nullable = false)
+    private EmulatorStatus status; // 애뮬레이터 상태 (ON/OFF)
+
+    @Transient
+    private String carNumber;
 
     @Builder
-    public EmulatorEntity(String carNumber, EmulatorStatus status) {
-        this.carNumber = carNumber;
+    public EmulatorEntity(String deviceId, EmulatorStatus status) {
+        this.deviceId = deviceId;
         this.status = status;
     }
 }
