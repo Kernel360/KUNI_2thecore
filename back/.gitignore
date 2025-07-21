@@ -32,6 +32,7 @@ replay_pid*
 *.iml
 out
 gen
+
 ### Gradle template
 .gradle
 **/build/
@@ -54,4 +55,7 @@ gradle-app.setting
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+# macos Finder 설정 파일
+.DS_Store
 

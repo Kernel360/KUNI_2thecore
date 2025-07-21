@@ -1,4 +1,4 @@
-package com.example._thecore_back.rest.car.db;
+package com.example._thecore_back.car.domain;
 
 public enum CarStatus {
     IN_USE("운행"),        // 운행 중

@@ -1,0 +1,26 @@
+<!-- resources/mappers/CarMapper.xml -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example._thecore_back.car.infrastructure.mapper.CarMapper">
+    <select id="search" resultType="CarEntity">
+        SELECT *
+        FROM car
+        <where>
+            <if test="carNumber != null">
+                AND car_number = #{carNumber}
+            </if>
+            <if test="model != null">
+                AND model = #{model}
+            </if>
+            <if test="brand != null">
+                AND brand = #{brand}
+            </if>
+            <if test="status != null">
+                AND status = #{status}
+            </if>
+        </where>
+    </select>
+
+</mapper>

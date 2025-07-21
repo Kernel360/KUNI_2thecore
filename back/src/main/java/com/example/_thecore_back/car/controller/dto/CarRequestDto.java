@@ -1,5 +1,7 @@
-package com.example._thecore_back.rest.car.model;
+package com.example._thecore_back.car.controller.dto;
 
+import com.example._thecore_back.car.domain.CarStatus;
+import com.example._thecore_back.car.validation.group.CreateGroup;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -10,15 +12,14 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CarRequest {
+public class CarRequestDto {
     @NotBlank(groups = CreateGroup.class)
     private String brand;
 
     @NotBlank(groups = CreateGroup.class)
     private String model;
 
-    @NotBlank(groups = CreateGroup.class)
-    private String year;
+    private Integer carYear;
 
     private String status;
 
@@ -29,14 +30,5 @@ public class CarRequest {
     private String carNumber;
 
     @NotNull(groups = CreateGroup.class)
-    private Float sumDist;
-
-    @NotNull(groups = CreateGroup.class)
-    private Integer emulatorId;
-
-    @NotBlank
-    private String verificationCode;
-
-    @NotBlank
-    private String confirmPassword;
+    private Double sumDist;
 }
