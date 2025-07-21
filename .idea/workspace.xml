@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="da1c1f06-ff28-40be-af9f-11e998ef42c2" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/example/_thecore_back/emulator/infrastructure/EmulatorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/example/_thecore_back/emulator/infrastructure/EmulatorRepository.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.back 빌드.executor": "Run",
+    "Spring Boot.Application.executor": "Run",
+    "git-widget-placeholder": "emulator에 #37개",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>
