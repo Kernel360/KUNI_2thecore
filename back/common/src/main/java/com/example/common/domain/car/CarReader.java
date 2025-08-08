@@ -14,8 +14,6 @@ public interface CarReader  {
 
     Map<CarStatus, Long> getCountByStatus();
 
-    Optional<CarEntity> findByEmulatorId(Integer emulatorId);
-
     List<CarEntity> findByStatus(List<CarStatus> statuses);
 
 }

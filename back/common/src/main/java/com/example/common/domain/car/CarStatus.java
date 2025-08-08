@@ -1,5 +1,6 @@
 package com.example.common.domain.car;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Getter;
 
 @Getter
@@ -14,6 +15,7 @@ public enum CarStatus {
         this.displayName = displayName;
     }
 
+    @JsonCreator
     // 한글 문자열로부터 enum 얻는 메서드
     public static CarStatus fromDisplayName(String displayName) {
         for (CarStatus status : values()) {

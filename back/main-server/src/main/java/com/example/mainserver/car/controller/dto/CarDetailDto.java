@@ -10,7 +10,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-//@JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class)
 
 public class CarDetailDto {
 
@@ -32,6 +31,8 @@ public class CarDetailDto {
 
     private double sumDist;
 
+    private String loginId;
+
 
     public static CarDetailDto EntityToDto(CarEntity car){
         return CarDetailDto.builder()
@@ -44,6 +45,7 @@ public class CarDetailDto {
                 .sumDist(car.getSumDist())
                 .lastLatitude(car.getLastLatitude())
                 .lastLongitude(car.getLastLongitude())
+                .loginId(car.getLoginId())
                 .build();
 
     }

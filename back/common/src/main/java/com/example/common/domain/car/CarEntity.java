@@ -48,8 +48,8 @@ public class CarEntity {
     @Column(name = "last_longitude")
     private String lastLongitude;
 
-    @Column(name = "emulator_id")
-    private Integer emulatorId; // 연결된 애뮬레이터 아이디
+    @Column(name = "login_id")
+    private String loginId;
 
     public void updateInfo(CarRequestDto carRequest) {
         if (carRequest.getBrand() != null && !carRequest.getBrand().isBlank()) {

@@ -28,7 +28,7 @@ public class CarSearchDto {
                 .carNumber(car.getCarNumber())
                 .brand(car.getBrand())
                 .model(car.getModel())
-                .status(car.getStatus().name())
+                .status(car.getStatus().getDisplayName())
                 .build();
 
     }

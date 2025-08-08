@@ -47,9 +47,6 @@ public class CarReaderImpl implements CarReader {
 
     }
 
-    public Optional<CarEntity> findByEmulatorId(Integer emulatorId){
-        return carRepository.findByEmulatorId(emulatorId);
-    }
 
     @Override
     public List<CarEntity> findByStatus(List<CarStatus> statuses) {
