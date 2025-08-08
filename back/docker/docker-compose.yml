@@ -29,38 +29,38 @@ services:
     networks:
       - rabbitmq_net
     restart: unless-stopped
-
-  hub-server:
-    image: hub-server-img
-    container_name: 2thecore-hub
-    build:
-      context: ../
-      dockerfile: hub-server/Dockerfile
-    ports:
-      - "8082:8082"
-    depends_on:
-      - rabbitmq
-      - redis
-    networks:
-      - rabbitmq_net
-    restart: unless-stopped
-
-  main-server:
-    environment:
-      - RABBITMQ_HOST=rabbitmq
-    image: main-server-img
-    container_name: 2thecore-main
-    build:
-      context: ../
-      dockerfile: main-server/Dockerfile
-    ports:
-      - "8080:8080"
-    depends_on:
-      - rabbitmq
-      - redis
-    networks:
-      - rabbitmq_net
-    restart: unless-stopped
+#
+#  hub-server:
+#    image: hub-server-img
+#    container_name: 2thecore-hub
+#    build:
+#      context: ../
+#      dockerfile: hub-server/Dockerfile
+#    ports:
+#      - "8082:8082"
+#    depends_on:
+#      - rabbitmq
+#      - redis
+#    networks:
+#      - rabbitmq_net
+#    restart: unless-stopped
+#
+#  main-server:
+#    environment:
+#      - RABBITMQ_HOST=rabbitmq
+#    image: main-server-img
+#    container_name: 2thecore-main
+#    build:
+#      context: ../
+#      dockerfile: main-server/Dockerfile
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - rabbitmq
+#      - redis
+#    networks:
+#      - rabbitmq_net
+#    restart: unless-stopped
 
 
 volumes:
