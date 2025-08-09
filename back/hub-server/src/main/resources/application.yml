@@ -26,10 +26,10 @@ car:
     db:
       enabled: ${CAR_DB_ENABLED:false}
 
-emulator:
-  reader:
-    db:
-      enabled: ${EMULATOR_DB_ENABLED:false}
+#emulator:
+#  reader:
+#    db:
+#      enabled: ${EMULATOR_DB_ENABLED:false}
 
 jwt:
   secret: ${JWT_SECRET_KEY}
